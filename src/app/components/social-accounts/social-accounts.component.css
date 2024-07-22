@@ -1,0 +1,15 @@
+.socials-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+i{
+  display: flex;
+  flex-direction: row;
+  font-size: 32px;
+  padding:4px;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+nav{
+  background-color: black;
+  color: white;
+}
+
+ul{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style-type: none;
+}
+
+li{
+  padding: 4px 32px 4px 32px;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+  color:white;
+}
+
+a:hover{
+  color: red;
+}
+.active {
+  color: red;
+  font-weight: bold;
+}

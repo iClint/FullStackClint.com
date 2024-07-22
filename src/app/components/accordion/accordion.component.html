@@ -1,0 +1,35 @@
+<mat-accordion>
+  @for (expansionPanel of accordion; track expansionPanel) {
+    <mat-expansion-panel
+      #mep="matExpansionPanel"
+      [matTooltip]="panelPreview(expansionPanel.paragraphs[0])"
+      [matTooltipDisabled]="mep.expanded"
+      expanded="false"
+      matTooltipPosition="above"
+      matTooltipClass="accordion-preview"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title class="accordion-title">
+          {{ expansionPanel.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="accordion-content-wrapper">
+        @for (paragraph of expansionPanel.paragraphs; track paragraph) {
+          <p class="accordion-content">
+            {{ paragraph }}
+          </p>
+        }
+        <div class="image-container">
+          @for (image of expansionPanel.imgUrls; track image) {
+            <img
+              class="image-skills"
+              [src]="image.url"
+              [alt]="image.label"
+              [matTooltip]="image.label"
+            />
+          }
+        </div>
+      </div>
+    </mat-expansion-panel>
+  }
+</mat-accordion>

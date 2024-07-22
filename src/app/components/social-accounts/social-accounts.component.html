@@ -1,0 +1,8 @@
+<div class="socials-content">
+  @for (icon of icons; track icon) {
+    <i
+      matTooltip="{{ icon.label }}"
+      class="fa-{{ icon.type }} fa-{{ icon.icon }}"
+    ></i>
+  }
+</div>

@@ -1,0 +1,83 @@
+h3,
+h4,
+p,
+ul,
+li {
+  margin: 16px 16px 0 16px;
+}
+
+li {
+  margin: 0 16px 0 16px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.content {
+  margin: auto;
+  max-width: 720px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+
+}
+
+.mat-card-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 4s ease;
+}
+
+.mat-card-container.expanded {
+  max-height: 100vh;
+}
+
+mat-accordion {
+  margin: 16px;
+}
+
+mat-expansion-panel {
+  cursor: pointer;
+}
+
+mat-card {
+  padding: 16px;
+}
+
+.tab-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-text-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-pic {
+  height: 150px;
+  border-radius: 20%;
+  margin: 16px;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.mat-card {
+  margin: 16px;
+}

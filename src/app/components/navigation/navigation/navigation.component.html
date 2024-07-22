@@ -1,0 +1,5 @@
+<nav>
+  <ul>
+    @for(navOption of navOptions; track navOption){<li><a [href]="navOption.path" [routerLink]="'/' + navOption.path" routerLinkActive="active">{{navOption.label}}</a></li>}
+  </ul>
+</nav>
