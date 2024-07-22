@@ -8,13 +8,14 @@ import {
   timeout,
   TimeoutError,
 } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GraphqlService {
   //TODO: Update the graphqlEndpoint to the correct URL and store in envirment variable
-  private graphqlEndpoint = 'https://fullstackclint.com:5001/graphql';
+  private graphqlEndpoint = environment.graphqlEndpoint;
 
   private defaultTimeout = 5200; // Default timeout in milliseconds (adjust as needed)
 
