@@ -1,0 +1,15 @@
+.preview {
+  cursor: zoom-in;
+}
+
+.small {
+  max-width: 75px;
+}
+
+.medium {
+  max-width: 150px;
+}
+
+.large {
+  max-width: 300px;
+}

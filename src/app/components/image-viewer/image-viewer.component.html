@@ -1,0 +1,35 @@
+<div class="image-viewer">
+  @if (isSolo) {
+    <div class="image-viewer__solo-style">
+      <img
+        [ngClass]="[
+          !viewerStyle.isPreview ? 'preview' : '',
+          viewerStyle.viewSize,
+        ]"
+        [src]="imageUrls[viewerStyle.soloIndex].url"
+        [alt]="imageUrls[viewerStyle.soloIndex].alt"
+        (click)="
+          !viewerStyle.isPreview && openModal(imageUrls[viewerStyle.soloIndex])
+        "
+      />
+    </div>
+  }
+  @if (isGrid) {
+    <div class="image-viewer__grid-style">
+      <img
+        [src]="imageUrls[viewerStyle.soloIndex].url"
+        [alt]="imageUrls[viewerStyle.soloIndex].alt"
+      />
+    </div>
+  }
+  @if (isCarousel) {
+    <div class="image-viewer__carousel-style">
+      <img
+        [src]="imageUrls[viewerStyle.soloIndex].url"
+        [alt]="imageUrls[viewerStyle.soloIndex].alt"
+      />
+    </div>
+  }
+</div>
+
+<!-- TODO: add template for fullsize image modal -->
