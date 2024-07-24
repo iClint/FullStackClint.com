@@ -23,16 +23,13 @@ mat-expansion-panel .mat-expansion-panel-content {
   justify-content: center;
   align-items: center;
   padding: 8px;
-  /* Optional, add padding if needed */
 }
 
 .image-skills {
   max-width: 75px;
   margin: 8px;
-  /* Ensure image sizes are handled correctly */
 }
 
 .accordion-content-wrapper {
   overflow: auto;
-  /* Allow scrolling inside the panel content */
 }
