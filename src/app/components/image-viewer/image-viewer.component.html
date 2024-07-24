@@ -3,33 +3,50 @@
     <div class="image-viewer__solo-style">
       <img
         [ngClass]="[
-          !viewerStyle.isPreview ? 'preview' : '',
+          viewerStyle.isPreview ? 'preview' : '',
           viewerStyle.viewSize,
         ]"
         [src]="imageUrls[viewerStyle.soloIndex].url"
         [alt]="imageUrls[viewerStyle.soloIndex].alt"
         (click)="
-          !viewerStyle.isPreview && openModal(imageUrls[viewerStyle.soloIndex])
+          viewerStyle.isPreview && openModal(imageUrls[viewerStyle.soloIndex])
         "
       />
     </div>
   }
   @if (isGrid) {
-    <div class="image-viewer__grid-style">
-      <img
-        [src]="imageUrls[viewerStyle.soloIndex].url"
-        [alt]="imageUrls[viewerStyle.soloIndex].alt"
-      />
+    <div class="image-viewer__grid-style image-container">
+      @for (image of imageUrls; track $index) {
+        <img
+          [ngClass]="[
+            viewerStyle.isPreview ? 'preview' : '',
+            viewerStyle.viewSize,
+          ]"
+          [src]="imageUrls[$index].url"
+          [alt]="imageUrls[$index].alt"
+          (click)="viewerStyle.isPreview && openModal(imageUrls[$index])"
+        />
+      }
     </div>
   }
   @if (isCarousel) {
-    <div class="image-viewer__carousel-style">
-      <img
-        [src]="imageUrls[viewerStyle.soloIndex].url"
-        [alt]="imageUrls[viewerStyle.soloIndex].alt"
-      />
-    </div>
+    <mat-card class="carousel-background">
+      <!-- https://github.com/mehmet-erim/ngx-slickjs -->
+      <ngx-slick-carousel
+        class="carousel large"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+        (init)="slickInit()"
+        (breakpoint)="breakpoint()"
+        (afterChange)="afterChange()"
+        (beforeChange)="beforeChange()"
+      >
+        @for (slide of imageUrls; track $index) {
+          <div ngxSlickItem class="slide">
+            <img src="{{ slide.url }}" alt="" width="100%" />
+          </div>
+        }
+      </ngx-slick-carousel>
+    </mat-card>
   }
 </div>
-
-<!-- TODO: add template for fullsize image modal -->

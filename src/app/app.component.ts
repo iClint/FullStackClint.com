@@ -30,28 +30,28 @@ export class AppComponent implements OnInit {
     this.staticContentService.fetchStaticContent();
   }
 
-  get tempIMageViewer() {
+  get tempImageViewer() {
     return {
       imageUrls: [
         {
-          url: 'https://via.placeholder.com/500',
-          label: 'Image 1',
-          alt: 'Image 1',
+          url: 'https://fullstackclint.com/hosted-images/html5.png',
+          label: 'HTML5',
+          alt: 'HTML5',
         },
         {
-          url: 'https://via.placeholder.com/500',
+          url: 'http://fullstackclint.com/hosted-images/css3.png',
           label: 'Image 2',
           alt: 'Image 2',
         },
         {
-          url: 'https://via.placeholder.com/500',
-          label: 'Image 3',
-          alt: 'Image 3',
+          url: 'http://fullstackclint.com/hosted-images/angular.png',
+          label: 'Angular',
+          alt: 'Angular',
         },
       ],
       viewerStyle: {
-        viewerStyle: ViewerStyle.Solo,
-        viewSize: ViewerSize.Small,
+        viewerStyle: ViewerStyle.Carousel,
+        viewSize: ViewerSize.Medium,
         isPreview: true,
         soloIndex: 0,
         autoNextImg: false,
