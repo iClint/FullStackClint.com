@@ -10,7 +10,7 @@
         <div class="tab-content">
           <div class="image-text-container">
             @if(content.imgUrls[0]) {
-            <img [src]="content.imgUrls[0]" alt="" class="profile-pic" />
+            <img [src]="content.imgUrls[0].url" [attr.alt]="content.imgUrls[0].alt" class="profile-pic" />
             }
             <div class="text-content">
               @for(tabContent of content.content; track tabContent) {

@@ -1,7 +1,7 @@
 export interface AboutStaticContent {
   tabLabel: string;
   content: string[];
-  imgUrls: string[];
+  imgUrls: ImgUrl[];
   expansionPanels: ExpansionPanelModel[];
 }
 
@@ -16,4 +16,5 @@ export interface ExpansionPanelModel {
 export interface ImgUrl {
   url: string;
   label: string;
+  alt: string;
 }

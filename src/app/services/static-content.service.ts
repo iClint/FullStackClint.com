@@ -15,22 +15,27 @@ export class StaticContentService {
       return of(this.staticContent);
     } else {
       const query = `
-       query {
+      query {
         allAboutDocuments(collectionName: "about") {
-          content
-          imgUrls
           tabLabel
+          content
+          imgUrls {
+            alt
+            label
+            url
+          }
           expansionPanels {
             expanded
             paragraphs
             title
             imgUrls {
-              url
+              alt
               label
+              url
             }
           }
         }
-      }
+    }
     `;
 
       return this.graphqlService.sendQuery(query).pipe(
