@@ -1,4 +1,5 @@
 <div class="image-viewer">
+  @if(viewerStyle.isPreview){<p class="caption">Click for to enlarge</p>}
   @if (isGrid) {
     <div class="image-viewer__grid-style image-container">
       @for (image of imageUrls; track $index) {
@@ -21,7 +22,7 @@
       <ngb-carousel
         #carousel
         class="carousel"
-        [class]="viewerStyle.viewerSize"
+        class="large"
         [pauseOnFocus]="viewerStyle.carouselConfig.pauseOnFocus"
         [pauseOnHover]="viewerStyle.carouselConfig.pauseOnHover"
         [showNavigationArrows]="viewerStyle.carouselConfig.showNavigationArrows"
