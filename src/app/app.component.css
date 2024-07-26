@@ -10,8 +10,7 @@ app-footer {
 }
 
 .nav {
-  position: absolute;
-  margin-bottom: 16px;
+  display:flex;
   min-width: 100%;
   width: 100%;
   z-index: 10;

@@ -24,18 +24,44 @@ export class StaticContentService {
             label
             url
           }
+          imageViewerStyles {
+            isPreview
+            soloIndex
+            viewerStyle
+            viewSize
+            carouselConfig {
+              interval
+              pauseOnFocus
+              pauseOnHover
+              showNavigationArrows
+              showNavigationIndicators
+            }
+          }
           expansionPanels {
             expanded
             paragraphs
             title
             imgUrls {
-              alt
               label
               url
+              alt
+            }
+            imageViewerStyles {
+              isPreview
+              soloIndex
+              viewerStyle
+              viewSize
+              carouselConfig {
+                interval
+                pauseOnFocus
+                pauseOnHover
+                showNavigationArrows
+                showNavigationIndicators
+              }
             }
           }
         }
-    }
+      }
     `;
 
       return this.graphqlService.sendQuery(query).pipe(

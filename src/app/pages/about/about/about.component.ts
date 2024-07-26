@@ -16,6 +16,7 @@ import { AboutStaticContent } from '../../../models/about-static-content.model';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ErrorComponent } from '../../../components/error/error.component';
+import { ImageViewerComponent } from '../../../components/image-viewer/image-viewer.component';
 
 @Component({
   selector: 'app-about',
@@ -32,6 +33,7 @@ import { ErrorComponent } from '../../../components/error/error.component';
     MatTooltipModule,
     CommonModule,
     ErrorComponent,
+    ImageViewerComponent,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',

@@ -5,17 +5,24 @@ export interface ImageUrls {
 }
 
 export interface ImageViewerStyle {
-  viewerStyle: ViewerStyle;
-  viewSize: ViewerSize;
+  viewerStyle: string;
+  viewSize: string;
   isPreview: boolean;
   soloIndex: number;
-  autoNextImg: boolean;
+  carouselConfig: CarouselConfig;
+}
+
+export interface CarouselConfig {
+  interval: number;
+  showNavigationArrows: boolean;
+  showNavigationIndicators: boolean;
+  pauseOnFocus: boolean;
+  pauseOnHover: boolean;
 }
 
 export enum ViewerStyle {
   Grid = 'grid',
   Carousel = 'carousel',
-  Solo = 'solo',
 }
 
 export enum ViewerSize {

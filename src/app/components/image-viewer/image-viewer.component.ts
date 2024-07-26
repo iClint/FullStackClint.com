@@ -1,52 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   ImageUrls,
   ImageViewerStyle,
-  ViewerSize,
   ViewerStyle,
 } from '../../models/image-viewer.models';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 import { CommonModule } from '@angular/common';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-image-viewer',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, SlickCarouselModule, MatCardModule],
+  imports: [CommonModule, MatDialogModule, NgbCarouselModule, MatCardModule],
   templateUrl: './image-viewer.component.html',
   styleUrl: './image-viewer.component.css',
 })
-export class ImageViewerComponent {
+export class ImageViewerComponent implements OnInit {
   @Input() imageUrls: ImageUrls[] = [];
-  @Input() viewerStyle: ImageViewerStyle = {
-    viewerStyle: ViewerStyle.Solo,
-    viewSize: ViewerSize.Large,
-    isPreview: false,
-    soloIndex: 0,
-    autoNextImg: false,
-  };
-
-  slideConfig = {
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    dots: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: true,
-    // centerMode: true,
-    // centerPadding: '60px',
-    // dotsClass: 'slick-dots',
-    // draggable: true,
-    // cssEase: 'ease',
-    // fade: false,
-  };
+  @Input() viewerStyle: ImageViewerStyle = {} as ImageViewerStyle;
 
   constructor(private dialog: MatDialog) {}
 
-  get isSolo(): boolean {
-    return this.viewerStyle.viewerStyle === ViewerStyle.Solo;
+  ngOnInit() {
+    console.log('Viewer Style on Init:');
+    console.log(this.viewerStyle);
   }
 
   get isGrid(): boolean {
@@ -55,22 +34,6 @@ export class ImageViewerComponent {
 
   get isCarousel(): boolean {
     return this.viewerStyle.viewerStyle === ViewerStyle.Carousel;
-  }
-
-  slickInit() {
-    console.log('slick initialized');
-  }
-
-  breakpoint() {
-    console.log('breakpoint');
-  }
-
-  afterChange() {
-    console.log('afterChange');
-  }
-
-  beforeChange() {
-    console.log('beforeChange');
   }
 
   openModal(imageUrl: ImageUrls): void {

@@ -1,19 +1,4 @@
 <div class="image-viewer">
-  @if (isSolo) {
-    <div class="image-viewer__solo-style">
-      <img
-        [ngClass]="[
-          viewerStyle.isPreview ? 'preview' : '',
-          viewerStyle.viewSize,
-        ]"
-        [src]="imageUrls[viewerStyle.soloIndex].url"
-        [alt]="imageUrls[viewerStyle.soloIndex].alt"
-        (click)="
-          viewerStyle.isPreview && openModal(imageUrls[viewerStyle.soloIndex])
-        "
-      />
-    </div>
-  }
   @if (isGrid) {
     <div class="image-viewer__grid-style image-container">
       @for (image of imageUrls; track $index) {
@@ -31,22 +16,21 @@
   }
   @if (isCarousel) {
     <mat-card class="carousel-background">
-      <!-- https://github.com/mehmet-erim/ngx-slickjs -->
-      <ngx-slick-carousel
-        class="carousel large"
-        #slickModal="slick-carousel"
-        [config]="slideConfig"
-        (init)="slickInit()"
-        (breakpoint)="breakpoint()"
-        (afterChange)="afterChange()"
-        (beforeChange)="beforeChange()"
-      >
+      <ngb-carousel 
+      #carousel
+      class="carousel"
+      [class]="viewerStyle.viewSize" 
+      [pauseOnFocus]="viewerStyle.carouselConfig.pauseOnFocus"
+      [pauseOnHover]="viewerStyle.carouselConfig.pauseOnHover"
+      [showNavigationArrows]="viewerStyle.carouselConfig.showNavigationArrows" 
+      [showNavigationIndicators]="viewerStyle.carouselConfig.showNavigationIndicators"      
+      [interval]="viewerStyle.carouselConfig.interval">
         @for (slide of imageUrls; track $index) {
-          <div ngxSlickItem class="slide">
+          <ng-template ngbSlide>
             <img src="{{ slide.url }}" alt="" width="100%" />
-          </div>
+          </ng-template>
         }
-      </ngx-slick-carousel>
+      </ngb-carousel>
     </mat-card>
   }
 </div>

@@ -1,5 +1,5 @@
 <mat-accordion>
-  @for (expansionPanel of accordion; track expansionPanel) {
+  @for (expansionPanel of accordion; track $index) {
     <mat-expansion-panel
       #mep="matExpansionPanel"
       [matTooltip]="panelPreview(expansionPanel.paragraphs[0])"

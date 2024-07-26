@@ -14,7 +14,6 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class GraphqlService {
-  //TODO: Update the graphqlEndpoint to the correct URL and store in envirment variable
   private graphqlEndpoint = environment.graphqlEndpoint;
 
   private defaultTimeout = 5200; // Default timeout in milliseconds (adjust as needed)
