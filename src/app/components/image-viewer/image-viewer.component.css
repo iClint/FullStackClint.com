@@ -31,6 +31,7 @@
 }
 
 .image-grid {
+  border-radius: 10px;
   margin: 8px;
 }
 

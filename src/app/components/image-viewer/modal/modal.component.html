@@ -1,8 +1,19 @@
 <div class="modal">
-  <img
-    class="modal-image"
-    [mat-dialog-close]="true"
-    [src]="data.imageUrl.url"
-    [alt]="data.imageUrl.alt"
-  />
+  <mat-card class="modal-card">
+    <i class="fa-solid fa-circle-xmark close-button" (click)="closeModal()"></i>
+    @if(isCarousel){<i
+      class="fa-solid fa-circle-chevron-left nav-button"
+      (click)="nextImage()"
+    ></i>}
+    <img
+      class="modal-image"
+      [mat-dialog-close]="true"
+      [src]="data.imageUrls[data.index].url"
+      [alt]="data.imageUrls[data.index].alt"
+    />
+    @if(isCarousel){<i
+      class="fa-solid fa-circle-chevron-right nav-button"
+      (click)="nextImage()"
+    ></i>}
+  </mat-card>
 </div>

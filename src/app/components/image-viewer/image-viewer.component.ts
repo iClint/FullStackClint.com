@@ -9,11 +9,12 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 import { CommonModule } from '@angular/common';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-image-viewer',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, NgbCarouselModule, MatCardModule],
+  imports: [CommonModule, MatDialogModule, NgbCarouselModule, MatCardModule, MatTooltipModule],
   templateUrl: './image-viewer.component.html',
   styleUrl: './image-viewer.component.css',
 })
@@ -42,9 +43,13 @@ export class ImageViewerComponent implements OnInit {
       : '';
   }
 
-  openModal(imageUrl: ImageUrls): void {
-    this.dialog.open(ModalComponent, {
-      data: { imageUrl },
+  openModal(imageUrls: ImageUrls[], index: number): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { imageUrls: imageUrls, index: index },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
     });
   }
 }

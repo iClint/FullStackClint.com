@@ -3,14 +3,15 @@
     <div class="image-viewer__grid-style image-container">
       @for (image of imageUrls; track $index) {
         <img
+          class="image-grid"
           [ngClass]="[
             viewerStyle.isPreview ? 'preview' : '',
             viewerStyle.viewerSize,
-            'image-grid',
           ]"
           [src]="imageUrls[$index].url"
           [alt]="imageUrls[$index].alt"
-          (click)="viewerStyle.isPreview && openModal(imageUrls[$index])"
+          [matTooltip]="imageUrls[$index].label"
+          (click)="viewerStyle.isPreview && openModal(imageUrls, $index)"
         />
       }
     </div>

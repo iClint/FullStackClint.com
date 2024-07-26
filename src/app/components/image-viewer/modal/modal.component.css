@@ -5,9 +5,41 @@
   padding: 0;
 }
 
-.modal-image {
-  border-radius: 10px;
-  max-width: 80%;
-  cursor: zoom-out;
+.modal-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 90vh;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
+}
+
+.modal-image {
+  position: relative;
+  padding: 16px;
+  height: 80vh;
+  width: auto;
+  cursor: zoom-out;
+}
+.close-button,
+.nav-button {
+  margin: 16px;
+  font-size: 64px;
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+}
+
+.close-button:hover,
+.nav-button:hover {
+  color: #434343;
+}
+
+.close-button:active,
+.nav-button:active {
+  color: #000;
 }
