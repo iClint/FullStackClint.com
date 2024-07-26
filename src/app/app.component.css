@@ -1,20 +1,13 @@
-app-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-}
 
 .header {
   min-width: 100%;
 }
 
-.nav {
-  display:flex;
-  min-width: 100%;
+.footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgb(66, 66, 66);
+  z-index: 1;
 }
 
 .main {
