@@ -20,13 +20,11 @@
           </p>
         }
         <div class="image-container">
-          @for (image of expansionPanel.imgUrls; track image) {
-            <img
-              class="image-skills"
-              [src]="image.url"
-              [alt]="image.label"
-              [matTooltip]="image.label"
-            />
+          @if (expansionPanel.imgUrls.length >= 1) {
+            <app-image-viewer
+              [imageUrls]="expansionPanel.imgUrls"
+              [viewerStyle]="expansionPanel.imageViewerStyles"
+            ></app-image-viewer>
           }
         </div>
       </div>

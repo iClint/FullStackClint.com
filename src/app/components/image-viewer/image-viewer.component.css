@@ -22,9 +22,21 @@
   padding: 8px;
 }
 
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.image-grid {
+  margin: 8px;
+}
+
 .carousel {
-padding:0;
-margin:16px;
+  padding: 0;
+  margin: 16px;
 }
 
 .carousel-background {

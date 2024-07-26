@@ -23,17 +23,23 @@ export class ImageViewerComponent implements OnInit {
 
   constructor(private dialog: MatDialog) {}
 
-  ngOnInit() {
-    console.log('Viewer Style on Init:');
-    console.log(this.viewerStyle);
+  ngOnInit(): void {
+    console.log('IV images = ', this.imageUrls);
+    console.log('IV styles = ', this.viewerStyle);
+    console.log('IV viewerSize = ', this.viewerStyle.viewerSize);
   }
-
   get isGrid(): boolean {
     return this.viewerStyle.viewerStyle === ViewerStyle.Grid;
   }
 
   get isCarousel(): boolean {
     return this.viewerStyle.viewerStyle === ViewerStyle.Carousel;
+  }
+
+  get viewerSize(): string {
+    return this.viewerStyle.viewerSize
+      ? this.viewerStyle.viewerSize.toString()
+      : '';
   }
 
   openModal(imageUrl: ImageUrls): void {

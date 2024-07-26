@@ -6,7 +6,7 @@ export interface ImageUrls {
 
 export interface ImageViewerStyle {
   viewerStyle: string;
-  viewSize: string;
+  viewerSize: string | undefined;
   isPreview: boolean;
   soloIndex: number;
   carouselConfig: CarouselConfig;

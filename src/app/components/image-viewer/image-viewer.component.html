@@ -5,7 +5,8 @@
         <img
           [ngClass]="[
             viewerStyle.isPreview ? 'preview' : '',
-            viewerStyle.viewSize,
+            viewerStyle.viewerSize,
+            'image-grid',
           ]"
           [src]="imageUrls[$index].url"
           [alt]="imageUrls[$index].alt"
@@ -16,15 +17,18 @@
   }
   @if (isCarousel) {
     <mat-card class="carousel-background">
-      <ngb-carousel 
-      #carousel
-      class="carousel"
-      [class]="viewerStyle.viewSize" 
-      [pauseOnFocus]="viewerStyle.carouselConfig.pauseOnFocus"
-      [pauseOnHover]="viewerStyle.carouselConfig.pauseOnHover"
-      [showNavigationArrows]="viewerStyle.carouselConfig.showNavigationArrows" 
-      [showNavigationIndicators]="viewerStyle.carouselConfig.showNavigationIndicators"      
-      [interval]="viewerStyle.carouselConfig.interval">
+      <ngb-carousel
+        #carousel
+        class="carousel"
+        [class]="viewerStyle.viewerSize"
+        [pauseOnFocus]="viewerStyle.carouselConfig.pauseOnFocus"
+        [pauseOnHover]="viewerStyle.carouselConfig.pauseOnHover"
+        [showNavigationArrows]="viewerStyle.carouselConfig.showNavigationArrows"
+        [showNavigationIndicators]="
+          viewerStyle.carouselConfig.showNavigationIndicators
+        "
+        [interval]="viewerStyle.carouselConfig.interval"
+      >
         @for (slide of imageUrls; track $index) {
           <ng-template ngbSlide>
             <img src="{{ slide.url }}" alt="" width="100%" />

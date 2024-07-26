@@ -8,12 +8,16 @@
   @if (!isLoading && !errorOccurred) {
     <mat-card>
       <mat-tab-group>
-        @for (content of staticContent; track content) {
+        @for (content of staticContent; track $index) {
           <mat-tab [label]="content.tabLabel">
             <div class="tab-content">
               <div class="image-text-container">
-                @if (content.imgUrls[0]) {
-                  <img [src]="content.imgUrls[0]" alt="" class="profile-pic" />
+                @if (content.imgUrls.length >= 1) {
+                  <img
+                    [src]="content.imgUrls[0].url"
+                    alt=""
+                    class="profile-pic"
+                  />
                 }
                 <div class="text-content">
                   @for (tabContent of content.content; track tabContent) {
@@ -26,6 +30,7 @@
               <app-accordion
                 [accordion]="content.expansionPanels"
               ></app-accordion>
+              {{ content.expansionPanels[1].imageViewerStyles.soloIndex }}
             }
           </mat-tab>
         }

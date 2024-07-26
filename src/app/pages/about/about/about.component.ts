@@ -42,10 +42,9 @@ export class AboutComponent implements OnInit {
   private subscription: Subscription | null = null;
   staticContent: AboutStaticContent[] = [];
   isLoading = true;
-  animateTabs = false;
   accordionLoading = true;
   errorOccurred = false;
-  errorMessage: HttpErrorResponse = new HttpErrorResponse({});
+  errorMessage: string = '';
 
   constructor(
     private staticContentService: StaticContentService,
@@ -67,13 +66,18 @@ export class AboutComponent implements OnInit {
         (data) => {
           this.staticContent = data;
           this.isLoading = false;
-          console.log('Static content:', this.staticContent);
+
+          console.log('Static content ###check this###:', this.staticContent);
+          console.log(
+            'viewer Styles!!!: ',
+            this.staticContent[0].expansionPanels[0].imageViewerStyles,
+          );
         },
         (error: HttpErrorResponse) => {
           this.isLoading = false;
           this.errorOccurred = true;
-          this.errorMessage = error;
-          console.error('Error fetching static content:');
+          this.errorMessage = error.message || 'An error occurred';
+          console.error('Error fetching static content:', this.errorMessage);
         },
       );
   }
@@ -82,5 +86,21 @@ export class AboutComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  get viewerStyles() {
+    return {
+      viewerStyle: 'grid',
+      viewerSize: 'small',
+      isPreview: true,
+      soloIndex: 0,
+      carouselConfig: {
+        interval: 1000,
+        showNavigationArrows: true,
+        showNavigationIndicators: true,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+      },
+    };
   }
 }

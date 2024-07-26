@@ -4,7 +4,7 @@ export interface AboutStaticContent {
   tabLabel: string;
   content: string[];
   imgUrls: ImgUrl[];
-  imageViewStyles: ImageViewerStyle;
+  imageViewerStyles: ImageViewerStyle;
   expansionPanels: ExpansionPanelModel[];
 }
 
@@ -13,7 +13,7 @@ export interface ExpansionPanelModel {
   title: string;
   paragraphs: string[];
   imgUrls: ImgUrl[];
-  imageViewStyles: ImageViewerStyle;
+  imageViewerStyles: ImageViewerStyle;
 }
 
 export interface ImgUrl {
