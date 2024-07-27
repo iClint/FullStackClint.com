@@ -52,11 +52,8 @@ export class AboutComponent implements OnInit {
   ) {}
 
   ngAfterViewInit() {
-    // Wait for the accordion to finish rendering
-    setTimeout(() => {
-      this.accordionLoading = false; // Hide accordion loading
-      this.cdr.detectChanges(); // Trigger change detection
-    }, 300); // Adjust the timeout if needed
+    this.accordionLoading = false; // Hide accordion loading
+    this.cdr.detectChanges(); // Trigger change detection
   }
 
   ngOnInit(): void {
@@ -66,12 +63,6 @@ export class AboutComponent implements OnInit {
         (data) => {
           this.staticContent = data;
           this.isLoading = false;
-
-          console.log('Static content ###check this###:', this.staticContent);
-          console.log(
-            'viewer Styles!!!: ',
-            this.staticContent[0].expansionPanels[0].imageViewerStyles,
-          );
         },
         (error: HttpErrorResponse) => {
           this.isLoading = false;
@@ -86,21 +77,5 @@ export class AboutComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
-  }
-
-  get viewerStyles() {
-    return {
-      viewerStyle: 'grid',
-      viewerSize: 'small',
-      isPreview: true,
-      soloIndex: 0,
-      carouselConfig: {
-        interval: 1000,
-        showNavigationArrows: true,
-        showNavigationIndicators: true,
-        pauseOnFocus: true,
-        pauseOnHover: true,
-      },
-    };
   }
 }
