@@ -41,7 +41,6 @@ export class StaticContentService {
           return staticContent;
         }),
         catchError((error) => {
-          console.error('Error connecting to the API:', error);
           return throwError(() => new Error('Error connecting to the API.'));
         }),
       );
