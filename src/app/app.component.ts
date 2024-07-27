@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header/header.component';
 import { FooterComponent } from './components/footer/footer/footer.component';
 import { SocialAccountsComponent } from './components/social-accounts/social-accounts.component';
-import { StaticContentService } from './services/static-content.service';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +16,4 @@ import { StaticContentService } from './services/static-content.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
-  constructor(private staticContentService: StaticContentService) {}
-
-  ngOnInit() {
-    this.staticContentService.fetchStaticContent();
-  }
-}
+export class AppComponent {}

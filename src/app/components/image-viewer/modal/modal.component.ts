@@ -1,5 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { ImageUrls } from '../../../models/image-viewer.models';
 import { MatCard } from '@angular/material/card';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,7 +23,7 @@ export class ModalComponent {
   ) {}
 
   get isCarousel(): boolean {
-    return this.data.imageUrls.length > 1;
+    return this.data?.imageUrls?.length > 1;
   }
 
   nextImage() {

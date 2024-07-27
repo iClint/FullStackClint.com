@@ -9,6 +9,7 @@ import {
   BehaviorSubject,
 } from 'rxjs';
 import { AboutStaticContent } from '../models/about-static-content.model';
+import { AboutStaticContentQuery } from './static-content.querys';
 
 @Injectable({
   providedIn: 'root',
@@ -30,62 +31,13 @@ export class StaticContentService {
         return throwError(() => new Error('Content is loaded but is null'));
       }
     } else {
-      const query = `
-      query {
-        allAboutDocuments(collectionName: "about") {
-          tabLabel
-          content
-          imgUrls {
-            alt
-            label
-            url
-          }
-          imageViewerStyles {
-            isPreview
-            soloIndex
-            viewerStyle
-            viewerSize
-            carouselConfig {
-              interval
-              pauseOnFocus
-              pauseOnHover
-              showNavigationArrows
-              showNavigationIndicators
-            }
-          }
-          expansionPanels {
-            expanded
-            paragraphs
-            title
-            imgUrls {
-              label
-              url
-              alt
-            }
-            imageViewerStyles {
-              isPreview
-              soloIndex
-              viewerStyle
-              viewerSize
-              carouselConfig {
-                interval
-                pauseOnFocus
-                pauseOnHover
-                showNavigationArrows
-                showNavigationIndicators
-              }
-            }
-          }
-        }
-      }
-    `;
+      const query = AboutStaticContentQuery;
 
       return this.graphqlService.sendQuery(query).pipe(
         map((data: { allAboutDocuments: AboutStaticContent[] }) => {
           const staticContent = data.allAboutDocuments;
           this.staticContentSubject.next(staticContent);
           this.isContentLoaded = true;
-          console.log('Fetched data:', staticContent);
           return staticContent;
         }),
         catchError((error) => {
@@ -94,9 +46,5 @@ export class StaticContentService {
         }),
       );
     }
-  }
-
-  public getStaticContent(): Observable<AboutStaticContent[] | null> {
-    return this.staticContentSubject.asObservable();
   }
 }

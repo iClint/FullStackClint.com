@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImageViewerComponent } from './image-viewer.component';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
 describe('ImageViewerComponent', () => {
   let component: ImageViewerComponent;
@@ -8,9 +9,8 @@ describe('ImageViewerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImageViewerComponent]
-    })
-    .compileComponents();
+      imports: [ImageViewerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ImageViewerComponent);
     component = fixture.componentInstance;
