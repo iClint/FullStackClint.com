@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {
   MatAccordion,
@@ -12,7 +12,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StaticContentService } from '../../../services/static-content.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { AboutStaticContent } from '../../../models/about-static-content.model';
+import {
+  AboutStaticContent,
+  ImgUrl,
+} from '../../../models/about-static-content.model';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ErrorComponent } from '../../../components/error/error.component';
@@ -31,9 +34,9 @@ import { ImageViewerComponent } from '../../../components/image-viewer/image-vie
     MatExpansionPanelTitle,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    CommonModule,
     ErrorComponent,
     ImageViewerComponent,
+    CommonModule,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
@@ -51,24 +54,18 @@ export class AboutComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngAfterViewInit() {
-    this.accordionLoading = false; // Hide accordion loading
-    this.cdr.detectChanges(); // Trigger change detection
-  }
-
   ngOnInit(): void {
     this.subscription = this.staticContentService
       .fetchStaticContent()
       .subscribe(
-        (data) => {
-          this.staticContent = data;
+        (data: AboutStaticContent[]) => {
+          this.staticContent = data || [];
           this.isLoading = false;
         },
         (error: HttpErrorResponse) => {
           this.isLoading = false;
           this.errorOccurred = true;
           this.errorMessage = error.message || 'An error occurred';
-          console.error('Error fetching static content:', this.errorMessage);
         },
       );
   }

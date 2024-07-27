@@ -1,11 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { StaticContentService } from './static-content.service';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
-import {
-  HttpClientTestingModule,
-  provideHttpClientTesting,
-} from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('StaticContentService', () => {
   let service: StaticContentService;

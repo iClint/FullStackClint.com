@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   MatAccordion,
   MatExpansionPanel,
@@ -25,12 +25,8 @@ import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
   templateUrl: './accordion.component.html',
   styleUrl: './accordion.component.css',
 })
-export class AccordionComponent implements OnInit {
+export class AccordionComponent {
   @Input({ required: true }) accordion!: ExpansionPanelModel[];
-
-  ngOnInit() {
-    console.log('object passed to accordion = ', this.accordion);
-  }
 
   panelPreview(content: string, maxWords: number = 15): string {
     const words = content.split(/\s+/);

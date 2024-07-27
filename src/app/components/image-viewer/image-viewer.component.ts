@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   ImageUrls,
   ImageViewerStyle,
@@ -14,21 +14,22 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'app-image-viewer',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, NgbCarouselModule, MatCardModule, MatTooltipModule],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    NgbCarouselModule,
+    MatCardModule,
+    MatTooltipModule,
+  ],
   templateUrl: './image-viewer.component.html',
   styleUrl: './image-viewer.component.css',
 })
-export class ImageViewerComponent implements OnInit {
+export class ImageViewerComponent {
   @Input() imageUrls: ImageUrls[] = [];
   @Input() viewerStyle: ImageViewerStyle = {} as ImageViewerStyle;
 
   constructor(private dialog: MatDialog) {}
 
-  ngOnInit(): void {
-    console.log('IV images = ', this.imageUrls);
-    console.log('IV styles = ', this.viewerStyle);
-    console.log('IV viewerSize = ', this.viewerStyle.viewerSize);
-  }
   get isGrid(): boolean {
     return this.viewerStyle.viewerStyle === ViewerStyle.Grid;
   }
