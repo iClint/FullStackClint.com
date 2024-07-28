@@ -1,9 +1,8 @@
-<mat-card>
+<mat-card class="error-card">
   <div class="card-content">
-    <h1>Something has gone wrong!</h1>
-    <b>
-      <p>{{ errorMessage }}</p>
-    </b>
-    <p>you can try refreshing the page, or navigating to a different page.</p>
+    <mat-icon class="error-icon">error</mat-icon>
+    <h1 class="error-title">Oops! Something went wrong</h1>
+    <p class="error-message">{{ errorMessage }}</p>
+    <p class="error-suggestion">Please try refreshing the page or check back later.</p>
   </div>
 </mat-card>
