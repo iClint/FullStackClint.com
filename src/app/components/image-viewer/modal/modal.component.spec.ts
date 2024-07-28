@@ -47,4 +47,18 @@ describe('ModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+   it('should move to the next image and wrap around', () => {
+     component.nextImage();
+     expect(component.data.index).toBe(1); // Move to next image
+     component.nextImage();
+     expect(component.data.index).toBe(0); // Wrap around
+   });
+
+   it('should move to the previous image and wrap around', () => {
+     component.prevImage();
+     expect(component.data.index).toBe(1); // Move to previous image
+     component.prevImage();
+     expect(component.data.index).toBe(0); // Wrap around
+   });
 });

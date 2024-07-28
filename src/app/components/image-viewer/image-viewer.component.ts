@@ -50,7 +50,6 @@ export class ImageViewerComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
     });
   }
 }
