@@ -8,7 +8,7 @@
     }
     @if (!isLoading && !errorOccurred) {
       <mat-card>
-        <mat-tab-group>
+        <mat-tab-group dynamicHeight>
           @for (content of staticContent; track $index) {
             <mat-tab [label]="content.tabLabel">
               <div class="tab-content">

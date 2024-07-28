@@ -1,6 +1,6 @@
 /* Ensure the panel content is scrollable */
 mat-expansion-panel .mat-expansion-panel-content {
-  overflow: auto;
+  overflow:auto;
   /* Allow scrolling on touch*/
   max-height: 300px;
 }
