@@ -14,10 +14,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class GraphqlService {
-  //TODO: Update the graphqlEndpoint to the correct URL and store in envirment variable
   private graphqlEndpoint = environment.graphqlEndpoint;
 
-  private defaultTimeout = 5200; // Default timeout in milliseconds (adjust as needed)
+  private defaultTimeout = 5200;
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +31,7 @@ export class GraphqlService {
     };
 
     return this.http.post<any>(this.graphqlEndpoint, body).pipe(
-      timeout(timeoutDuration), // Timeout for the HTTP request
+      timeout(timeoutDuration),
       map((res) => {
         if (res.errors) {
           throw new Error(`GraphQL Error: ${res.errors[0].message}`);

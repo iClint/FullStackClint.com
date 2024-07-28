@@ -1,59 +1,49 @@
 import { Injectable } from '@angular/core';
 import { GraphqlService } from './graphql.service';
-import { map, catchError, Observable, of, throwError } from 'rxjs';
+import {
+  map,
+  catchError,
+  Observable,
+  of,
+  throwError,
+  BehaviorSubject,
+} from 'rxjs';
+import { AboutStaticContent } from '../models/about-static-content.model';
+import { AboutStaticContentQuery } from './static-content.querys';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StaticContentService {
-  staticContent: any;
-  isContentLoaded = false;
+  private staticContentSubject = new BehaviorSubject<
+    AboutStaticContent[] | null
+  >(null);
+  private isContentLoaded = false;
+
   constructor(private graphqlService: GraphqlService) {}
 
-  fetchStaticContent(): Observable<any> {
+  fetchStaticContent(): Observable<AboutStaticContent[]> {
     if (this.isContentLoaded) {
-      return of(this.staticContent);
-    } else {
-      const query = `
-       query {
-        allAboutDocuments(collectionName: "about") {
-          content
-          imgUrls
-          tabLabel
-          expansionPanels {
-            expanded
-            paragraphs
-            title
-            imgUrls {
-              url
-              label
-            }
-          }
-        }
+      const content = this.staticContentSubject.getValue();
+      if (content) {
+        return of(content);
+      } else {
+        return throwError(() => new Error('Content is loaded but is null'));
       }
-    `;
+    } else {
+      const query = AboutStaticContentQuery;
 
       return this.graphqlService.sendQuery(query).pipe(
-        map((data) => {
-          this.staticContent = data.allAboutDocuments;
+        map((data: { allAboutDocuments: AboutStaticContent[] }) => {
+          const staticContent = data.allAboutDocuments;
+          this.staticContentSubject.next(staticContent);
           this.isContentLoaded = true;
-          console.log('Fetched data:', this.staticContent);
-          return this.staticContent;
+          return staticContent;
         }),
         catchError((error) => {
-          return throwError(
-            () =>
-              new Error(
-                'Error connecting to the API to retreive page content from database.',
-                error,
-              ),
-          );
+          return throwError(() => new Error('Error connecting to the API.'));
         }),
       );
     }
-  }
-
-  public getStaticContent(): any {
-    return this.staticContent;
   }
 }

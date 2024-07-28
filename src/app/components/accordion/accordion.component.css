@@ -1,9 +1,8 @@
 /* Ensure the panel content is scrollable */
 mat-expansion-panel .mat-expansion-panel-content {
-  overflow: auto;
-  /* Allow scrolling */
+  overflow:auto;
+  /* Allow scrolling on touch*/
   max-height: 300px;
-  /* Adjust based on your design */
 }
 
 .accordion-title {
@@ -23,16 +22,17 @@ mat-expansion-panel .mat-expansion-panel-content {
   justify-content: center;
   align-items: center;
   padding: 8px;
-  /* Optional, add padding if needed */
 }
 
 .image-skills {
   max-width: 75px;
   margin: 8px;
-  /* Ensure image sizes are handled correctly */
 }
 
 .accordion-content-wrapper {
   overflow: auto;
-  /* Allow scrolling inside the panel content */
+}
+
+.mat-accordion {
+  padding:8px;
 }

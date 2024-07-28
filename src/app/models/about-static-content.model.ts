@@ -1,19 +1,23 @@
+import { ImageViewerStyle } from './image-viewer.models';
+
 export interface AboutStaticContent {
   tabLabel: string;
   content: string[];
-  imgUrls: string[];
+  imgUrls: ImgUrl[];
+  imageViewerStyles: ImageViewerStyle;
   expansionPanels: ExpansionPanelModel[];
 }
 
 export interface ExpansionPanelModel {
+  expanded: boolean;
   title: string;
-  description: string;
   paragraphs: string[];
   imgUrls: ImgUrl[];
-  expanded: boolean;
+  imageViewerStyles: ImageViewerStyle;
 }
 
 export interface ImgUrl {
   url: string;
   label: string;
+  alt: string;
 }

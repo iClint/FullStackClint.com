@@ -1,0 +1,42 @@
+<div class="image-viewer">
+  @if(viewerStyle.isPreview){<p class="caption">Click for to enlarge</p>}
+  @if (isGrid) {
+    <div class="image-viewer__grid-style image-container">
+      @for (image of imageUrls; track $index) {
+        <img
+          class="image-grid"
+          [ngClass]="[
+            viewerStyle.isPreview ? 'preview' : '',
+            viewerStyle.viewerSize,
+          ]"
+          [src]="imageUrls[$index].url"
+          [alt]="imageUrls[$index].alt"
+          [matTooltip]="imageUrls[$index].label"
+          (click)="viewerStyle.isPreview && openModal(imageUrls, $index)"
+        />
+      }
+    </div>
+  }
+  @if (isCarousel) {
+    <mat-card class="carousel-background">
+      <ngb-carousel
+        #carousel
+        class="carousel"
+        class="large"
+        [pauseOnFocus]="viewerStyle.carouselConfig.pauseOnFocus"
+        [pauseOnHover]="viewerStyle.carouselConfig.pauseOnHover"
+        [showNavigationArrows]="viewerStyle.carouselConfig.showNavigationArrows"
+        [showNavigationIndicators]="
+          viewerStyle.carouselConfig.showNavigationIndicators
+        "
+        [interval]="viewerStyle.carouselConfig.interval"
+      >
+        @for (slide of imageUrls; track $index) {
+          <ng-template ngbSlide>
+            <img src="{{ slide.url }}" alt="" width="100%" />
+          </ng-template>
+        }
+      </ngb-carousel>
+    </mat-card>
+  }
+</div>

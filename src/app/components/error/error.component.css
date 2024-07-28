@@ -1,7 +1,43 @@
-.card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 16px;
+.error-card {
+  max-width: 600px;
+  margin: 8px auto auto auto;
+  padding: 24px;
   text-align: center;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .error-icon {
+    font-size: 64px;
+    color: #721c24;
+    width: auto;
+    height: auto;
+    line-height: 1;
+  }
+
+  .error-title {
+    margin: 16px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #721c24;
+  }
+
+  .error-message {
+    margin: 0;
+    font-size: 18px;
+    color: #721c24;
+  }
+
+  .error-suggestion {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #495057;
+  }
 }

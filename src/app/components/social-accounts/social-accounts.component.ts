@@ -12,6 +12,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './social-accounts.component.html',
   styleUrl: './social-accounts.component.css',
 })
+
 export class SocialAccountsComponent {
   icons = [
     { label: 'GitHub', type: 'brands', icon: 'github', url: '' },
