@@ -92,6 +92,16 @@ describe('ImageViewerComponent', () => {
     expect(component.viewerStyle).toEqual(testStyle);
   });
 
+    it('should return true for isSolo when viewerStyle is Solo', () => {
+      component.viewerStyle.viewerStyle = ViewerStyle.Solo;
+      expect(component.isSolo).toBeTruthy();
+    });
+
+    it('should return false for isSolo when viewerStyle is not Solo', () => {
+      component.viewerStyle.viewerStyle = ViewerStyle.Carousel;
+      expect(component.isSolo).toBeFalsy();
+    });
+
   it('should return true for isGrid when viewerStyle is Grid', () => {
     component.viewerStyle.viewerStyle = ViewerStyle.Grid;
     expect(component.isGrid).toBeTruthy();

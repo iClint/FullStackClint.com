@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { AboutComponent } from './about.component';
-import { StaticContentService } from '../../../services/static-content.service';
+import { StaticContentService } from '../../services/static-content.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
-import { ErrorComponent } from '../../../components/error/error.component';
-import { ImageViewerComponent } from '../../../components/image-viewer/image-viewer.component';
+import { ErrorComponent } from '../../components/error/error.component';
+import { ImageViewerComponent } from '../../components/image-viewer/image-viewer.component';
 import { ChangeDetectorRef } from '@angular/core';
-import {
-  provideHttpClientTesting,
-} from '@angular/common/http/testing';
-import {  HttpErrorResponse, provideHttpClient } from '@angular/common/http';
-import { mockAboutStaticContent } from '../../../../test/mock-about-static-content.fixture';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpErrorResponse, provideHttpClient } from '@angular/common/http';
+import { mockAboutStaticContent } from '../../../test/mock-about-static-content.fixture';
 import { of, throwError } from 'rxjs';
 import {
   BrowserAnimationsModule,
@@ -25,7 +23,6 @@ describe('AboutComponent', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
   let staticContentService: StaticContentService;
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

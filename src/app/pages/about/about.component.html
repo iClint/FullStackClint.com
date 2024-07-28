@@ -14,11 +14,10 @@
               <div class="tab-content">
                 <div class="image-text-container">
                   @if (content.imgUrls.length >= 1) {
-                    <img
-                      [src]="content.imgUrls[0].url"
-                      alt=""
-                      class="profile-pic"
-                    />
+                    <app-image-viewer [class]="content.imageViewerStyles.viewerSize"
+                      [imageUrls]="content.imgUrls"
+                      [viewerStyle]="content.imageViewerStyles"
+                    ></app-image-viewer>
                   }
                   <div class="text-content">
                     @for (tabContent of content.content; track tabContent) {

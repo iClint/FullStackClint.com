@@ -21,6 +21,7 @@ export interface CarouselConfig {
 }
 
 export enum ViewerStyle {
+  Solo = 'solo',
   Grid = 'grid',
   Carousel = 'carousel',
 }

@@ -1,12 +1,31 @@
 <div class="image-viewer">
-  @if(viewerStyle.isPreview){<p class="caption">Click for to enlarge</p>}
+  @if (viewerStyle.isPreview) {
+    <p class="caption">Click for to enlarge</p>
+  }
+  @if (isSolo) {
+    <div class="image-viewer__solo-style image-container">
+      @for (image of imageUrls; track $index) {
+        <img
+          class="image-grid"
+          [ngClass]="[
+            viewerStyle.isPreview ? 'image-preview' : '',
+            viewerStyle.viewerSize,
+          ]"
+          [src]="imageUrls[viewerStyle.soloIndex].url"
+          [alt]="imageUrls[viewerStyle.soloIndex].alt"
+          [matTooltip]="imageUrls[viewerStyle.soloIndex].label"
+          (click)="viewerStyle.isPreview && openModal(imageUrls, $index)"
+        />
+      }
+    </div>
+  }
   @if (isGrid) {
     <div class="image-viewer__grid-style image-container">
       @for (image of imageUrls; track $index) {
         <img
           class="image-grid"
           [ngClass]="[
-            viewerStyle.isPreview ? 'preview' : '',
+            viewerStyle.isPreview ? 'image-preview' : '',
             viewerStyle.viewerSize,
           ]"
           [src]="imageUrls[$index].url"

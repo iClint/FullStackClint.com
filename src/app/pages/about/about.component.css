@@ -65,7 +65,7 @@ mat-card {
 
 .image-text-container {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .profile-pic {

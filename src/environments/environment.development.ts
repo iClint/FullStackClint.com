@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  backendAPI: 'http://209.38.24.195:5000/',
+  graphqlEndpoint: 'https://fullstackclint.com:5001/graphql/',
 };

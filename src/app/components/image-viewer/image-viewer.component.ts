@@ -10,6 +10,7 @@ import { ModalComponent } from './modal/modal.component';
 import { CommonModule } from '@angular/common';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SocialAccountsComponent } from '../social-accounts/social-accounts.component';
 
 @Component({
   selector: 'app-image-viewer',
@@ -30,6 +31,9 @@ export class ImageViewerComponent {
 
   constructor(private dialog: MatDialog) {}
 
+  get isSolo(): boolean {
+    return this.viewerStyle.viewerStyle === ViewerStyle.Solo;
+  }
   get isGrid(): boolean {
     return this.viewerStyle.viewerStyle === ViewerStyle.Grid;
   }

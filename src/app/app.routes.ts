@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { AboutComponent } from './pages/about/about/about.component';
-import { BlogComponent } from './pages/about/blog/blog.component';
+import { AboutComponent } from './pages/about/about.component';
+import { BlogComponent } from './pages/blog/blog.component';
 import { NgModule } from '@angular/core';
-import { ContactComponent } from './pages/about/contact/contact.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
