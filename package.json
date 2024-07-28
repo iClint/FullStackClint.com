@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --configuration production --delete-output-path=true; cd dist/fullStackClint; cp -r * /var/www/html/",
     "watch": "ng build --watch --configuration development",
     "test": "jest --watch"
   },
