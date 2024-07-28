@@ -11,10 +11,9 @@ import { ErrorComponent } from '../../../components/error/error.component';
 import { ImageViewerComponent } from '../../../components/image-viewer/image-viewer.component';
 import { ChangeDetectorRef } from '@angular/core';
 import {
-  HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { HttpClient, HttpErrorResponse, provideHttpClient } from '@angular/common/http';
+import {  HttpErrorResponse, provideHttpClient } from '@angular/common/http';
 import { mockAboutStaticContent } from '../../../../test/mock-about-static-content.fixture';
 import { of, throwError } from 'rxjs';
 import {
