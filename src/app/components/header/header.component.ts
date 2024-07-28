@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SocialAccountsComponent } from '../../social-accounts/social-accounts.component';
-import { NavigationComponent } from '../../navigation/navigation/navigation.component';
+import { SocialAccountsComponent } from '../social-accounts/social-accounts.component';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-header',
