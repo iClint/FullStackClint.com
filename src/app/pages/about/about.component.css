@@ -33,7 +33,6 @@ h4 {
   display: flex;
   justify-content: center;
   margin-top: 32px;
-
 }
 
 .mat-card-container {
@@ -66,12 +65,6 @@ mat-card {
 .image-text-container {
   display: flex;
   align-items: center;
-}
-
-.profile-pic {
-  height: 150px;
-  border-radius: 20%;
-  margin: 16px;
 }
 
 .text-content {

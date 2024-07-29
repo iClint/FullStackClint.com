@@ -12,7 +12,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StaticContentService } from '../../services/static-content.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { AboutStaticContent, ImgUrl } from '../about-static-content.model';
+import {
+  AboutStaticContent,
+  ImgUrl,
+} from '../../models/about-static-content.model';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ErrorComponent } from '../../components/error/error.component';
