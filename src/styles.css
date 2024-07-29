@@ -29,6 +29,10 @@ body {
   background-color: lightgray;
 }
 
+.mat-mdc-tab {
+  font-weight: 700 !important;
+}
+
 /* custom width on accordion preview tooltip */
 .accordion-preview {
   .mdc-tooltip__surface {
