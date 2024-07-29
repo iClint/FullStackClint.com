@@ -1,19 +1,39 @@
 <div class="modal">
-  <mat-card class="modal-card">
-    <i class="fa-solid fa-circle-xmark close-button" (click)="closeModal()"></i>
-    @if(isCarousel){<i
-      class="fa-solid fa-circle-chevron-left nav-button"
-      (click)="nextImage()"
-    ></i>}
+  @if (isCarousel && !loading) {
+    <div class="nav-background">
+      <i
+        class="fa-solid fa-circle-chevron-left nav-button"
+        (click)="nextImage()"
+        (click)="imageChanged()"
+      ></i>
+    </div>
+  }
+  <div>
+    <div class="close-button-background">
+      <i
+        class="fa-solid fa-circle-xmark close-button"
+        (click)="closeModal()"
+      ></i>
+    </div>
     <img
       class="modal-image"
+      [ngClass]="loading ? 'loading' : ''"
       [mat-dialog-close]="true"
       [src]="data.imageUrls[data.index].url"
       [alt]="data.imageUrls[data.index].alt"
+      (load)="loading = false"
     />
-    @if(isCarousel){<i
-      class="fa-solid fa-circle-chevron-right nav-button"
-      (click)="nextImage()"
-    ></i>}
-  </mat-card>
+    @if (loading) {
+      <mat-spinner></mat-spinner>
+    }
+  </div>
+  @if (isCarousel && !loading) {
+    <div class="nav-background">
+      <i
+        class="fa-solid fa-circle-chevron-right nav-button"
+        (click)="nextImage()"
+        (click)="imageChanged()"
+      ></i>
+    </div>
+  }
 </div>

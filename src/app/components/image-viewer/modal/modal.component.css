@@ -1,3 +1,5 @@
+
+
 .modal {
   display: flex;
   justify-content: center;
@@ -5,35 +7,39 @@
   padding: 0;
 }
 
-.modal-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-height: 90vh;
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
-}
-
 .modal-image {
   position: relative;
-  padding: 16px;
-  height: 80vh;
-  width: auto;
+  padding: 8px;
+  max-height: 90vh;
+  max-width: 90vw;
+  border-radius: 32px;
   cursor: zoom-out;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+  filter: drop-shadow(16px 16px 16px rgba(0, 0, 0, 0.60));
 }
-.close-button,
-.nav-button {
-  margin: 16px;
-  font-size: 64px;
-  cursor: pointer;
-}
-
-.close-button {
+.close-button-background {
   position: absolute;
   top: 0px;
   right: 0px;
+  margin: 24px;
+  background-color: red;
+  border-radius: 50%;
+}
+.close-button {
+  margin: 4px;
+  font-size: 34px;
   cursor: pointer;
-  z-index: 1;
+}
+
+.nav-background {
+  background-color: white;
+  border-radius: 50%;
+}
+ß
+.close-button,
+.nav-button {
+  margin: 4px;
+  font-size: 34px;
+  cursor: pointer;
 }
 
 .close-button:hover,
@@ -44,4 +50,8 @@
 .close-button:active,
 .nav-button:active {
   color: #000;
+}
+
+.loading {
+  display: none;
 }

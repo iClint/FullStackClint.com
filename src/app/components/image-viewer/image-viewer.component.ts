@@ -28,6 +28,7 @@ import { SocialAccountsComponent } from '../social-accounts/social-accounts.comp
 export class ImageViewerComponent {
   @Input() imageUrls: ImageUrls[] = [];
   @Input() viewerStyle: ImageViewerStyle = {} as ImageViewerStyle;
+  public previewText = 'Click to enlarge';
 
   constructor(private dialog: MatDialog) {}
 

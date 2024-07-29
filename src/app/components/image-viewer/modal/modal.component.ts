@@ -7,15 +7,25 @@ import {
 import { ImageUrls } from '../../../models/image-viewer.models';
 import { MatCard } from '@angular/material/card';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [MatDialogModule, MatCard, NgbCarouselModule],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatCard,
+    NgbCarouselModule,
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css',
 })
 export class ModalComponent {
+  loading = true;
+
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { imageUrls: ImageUrls[]; index: number },
@@ -40,5 +50,14 @@ export class ModalComponent {
 
   closeModal() {
     this.dialogRef.close();
+    this.loading = true;
+  }
+
+  imageLoaded() {
+    this.loading = false;
+  }
+
+  imageChanged() {
+    this.loading = true;
   }
 }

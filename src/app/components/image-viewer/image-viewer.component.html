@@ -1,7 +1,4 @@
 <div class="image-viewer">
-  @if (viewerStyle.isPreview) {
-    <p class="caption">Click for to enlarge</p>
-  }
   @if (isSolo) {
     <div class="image-viewer__solo-style image-container">
       @for (image of imageUrls; track $index) {
@@ -57,5 +54,8 @@
         }
       </ngb-carousel>
     </mat-card>
+  }
+  @if (viewerStyle.isPreview) {
+    <p class="caption">{{ previewText }}</p>
   }
 </div>
