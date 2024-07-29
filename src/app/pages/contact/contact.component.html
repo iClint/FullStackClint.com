@@ -1,1 +1,24 @@
-<p>contact works!</p>
+<mat-card class="content">
+  <app-social-accounts [size]="size"></app-social-accounts>
+
+  <div class="form-container">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea  rows=10 matInput placeholder="Message"></textarea>
+    </mat-form-field>
+<div class="button-container">
+    <button mat-raised-button color="primary">Send</button>
+</div>
+  </div>
+
+</mat-card>

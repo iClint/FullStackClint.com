@@ -10,6 +10,32 @@
   text-align: justify;
 }
 
+h3,
+h4,
+p,
+ul,
+li {
+  margin: 16px 16px 0 16px;
+}
+
+li {
+  margin: 0 16px 0 16px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
 .main {
   background-color: lightgray;
   color: black;
@@ -27,6 +53,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: lightgray;
+}
+
+.content {
+  margin: 16px auto auto auto;
+  max-width: 720px;
 }
 
 .mat-mdc-tab {

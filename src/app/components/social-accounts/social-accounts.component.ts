@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import {
-  MatSlideToggle,
-  MatSlideToggleChange,
-} from '@angular/material/slide-toggle';
+import { Component, Input } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @Component({
   selector: 'app-social-accounts',
@@ -14,6 +11,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 
 export class SocialAccountsComponent {
+  @Input() size: Size = Size.Medium;
+
   icons = [
     { label: 'GitHub', type: 'brands', icon: 'github', url: '' },
     { label: 'Facebook', type: 'brands', icon: 'facebook', url: '' },
@@ -21,4 +20,10 @@ export class SocialAccountsComponent {
     { label: 'LinkedIn', type: 'brands', icon: 'linkedin', url: '' },
     { label: 'Twitter', type: 'brands', icon: 'twitter', url: '' },
   ];
+}
+
+export enum Size {
+ Small = 'small',
+ Medium = 'medium',
+ Large = 'large'
 }

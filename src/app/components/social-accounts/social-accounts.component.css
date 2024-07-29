@@ -1,15 +1,27 @@
-.socials-content{
+.socials-content {
   display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-i{
-  display: flex;
-  flex-direction: row;
-  font-size: 32px;
-  padding:4px;
+i,
+.small,
+.medium,
+.large {
+  padding: 4px;
   cursor: pointer;
+}
+
+.small {
+  font-size: 16px;
+}
+
+.medium {
+  font-size: 32px;
+}
+
+.large {
+  font-size: 64px;
 }
